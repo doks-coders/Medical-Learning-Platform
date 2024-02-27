@@ -1,0 +1,112 @@
+﻿@model Topic
+
+
+<div class="text-center">
+	<div class="position-relative">
+
+		<div class="position-absolute banner-absolute-position sub-banner" style="width:100%; background-image: url('/images/web-images/course.jpg');">
+		</div>
+		<div class="position-absolute banner-absolute-position" style="opacity:0.7; background-color:white;width:100%;">
+		</div>
+
+		<div class="position-relative banner-absolute-position" style="width:100%;">
+			<div class="banner d-flex justify-content-center align-items-center">
+				<div>
+					<h6 class="text-lg-center">@Model.Course.Name</h6>
+					<h2 class="text-center text-lg-center mt-2">@Model.Title</h2>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+
+<div>
+	<div>
+
+
+
+		<div class="d-flex justify-content-between p-3 shadow-sm border-secondary border-2" style="border-radius:10px;border-color:black">
+			<div>
+				<b>About:</b> @Model.About
+			</div>
+
+			<div>
+				<b>Lecture Date:</b> @Model.LectureDate.ToShortDateString()
+			</div>
+
+		</div>
+
+		@{
+			if (Model.NoteFiles != null && Model.NoteFiles.Count() > 0)
+			{
+				<div class="mt-3">
+					Note Files
+				</div>
+				for (int i = 0; i < Model.NoteFiles.Count(); i++)
+				{
+					<div class="p-3 align-items-center d-flex justify-content-between shadow-sm border-secondary border-2" style="border-radius:10px;border-color:black">
+						<div>
+							File @(i + 1)
+						</div>
+
+						<a class="btn btn-primary" href="/@Model.NoteFiles[i].FileUrl" download="@(Model.Title)-@(i+1).pdf">
+							Download
+						</a>
+					</div>
+				}
+
+			}
+			else
+			{
+				<div>
+					No Notes
+				</div>
+
+			}
+
+
+		}
+
+		@{
+			if (Model.AssignmentFiles != null && Model.AssignmentFiles.Count() > 0)
+			{
+				<div class="mt-3">
+					Assignment Files
+				</div>
+
+				for (int i = 0; i < Model.AssignmentFiles.Count(); i++)
+				{
+
+
+					<div class="p-3 align-items-center d-flex justify-content-between shadow-sm border-secondary border-2" style="border-radius:10px;border-color:black">
+						<div>
+							File @(i + 1)
+						</div>
+
+						<a class="btn btn-primary" href="/@Model.AssignmentFiles[i].FileUrl" download="@(Model.Title)-@(i+1).pdf">
+							Download
+						</a>
+					</div>
+
+
+				}
+
+			}
+			else
+			{
+				<div>No Assignments</div>
+			}
+
+		}
+
+
+
+
+
+
+
+	</div>
+
+</div>

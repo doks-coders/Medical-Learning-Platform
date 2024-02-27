@@ -1,0 +1,102 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.banner{
+    height:300px;
+}
+
+.sub-banner {
+    height: 200px;
+}
+.background-image{
+    background-image: url('/images/web-images/wallpaper.jpg');
+    background-size: cover; /* You can use other values like 'contain' or specific dimensions */
+    background-repeat: no-repeat; /* This ensures the image is not repeated */
+    background-position: center center; /* You can adjust the position as needed */
+}
+
+
+
+
+.banner-absolute-position {
+    top: 0;
+    bottom: 0;
+    height: 100%;
+}
+
+.center-div{
+    justify-content:center;
+    align-items:center;
+    display:flex;
+}
+
+/*Style Table*/
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+    .styled-table th, .styled-table td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+    }
+
+    .styled-table th {
+        background-color: #f2f2f2;
+    }
+
+
+
+/*
+
+
+    .styled-table tr:hover {
+        background-color: #f5f5f5;
+    }
+    /////////
+        .styled-table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.styled-table td, .styled-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.styled-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+
+.styled-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+}
+    */

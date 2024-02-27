@@ -1,0 +1,87 @@
+﻿@model Topic
+@{
+	ViewData["Title"] = "Create";
+}
+
+<form method="post" enctype="multipart/form-data">
+	<input asp-for="Id" hidden />
+
+	<div class="border p-3 mt-4">
+		<div class="row pb-2">
+			<h2 class="text-primary">@(Model.Id != 0 ? "Edit" : "Upload") Topic</h2>
+			<hr />
+		</div>
+
+		<div asp-validation-summary="All"></div>
+		<div class="mb-3">
+			<label asp-for="Title"></label>
+			<input asp-for="Title" class="form-control" />
+			<span asp-validation-for="Title" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label asp-for="About"></label>
+			<textarea asp-for="About" class="form-control"></textarea>
+			<span asp-validation-for="About" class="text-danger"></span>
+		</div>
+
+		<div class="mb-3">
+			<label asp-for="LectureDate"></label>
+			<input asp-for="LectureDate" class="form-control" />
+			<span asp-validation-for="LectureDate" class="text-danger"></span>
+		</div>
+
+		<div class="mb-3">
+			<label asp-for="CourseId">Course</label>
+			<select asp-for="CourseId" asp-items="ViewBag.CourseList" class="form-select">
+				<option disabled selected>--Select Course-</option>
+			</select>
+			<span asp-validation-for="CourseId" class="text-danger"></span>
+		</div>
+
+
+		<div class="mb-3">
+			<label asp-for="NoteFiles"></label>
+			<input type="file" name="notefiles" multiple asp-for="NoteFiles" class="form-control" />
+		</div>
+		@{
+			if (Model.NoteFiles != null)
+			{
+				foreach (NoteFile file in Model.NoteFiles)
+				{
+					<p>
+						@file.FileUrl
+					</p>
+				}
+			}
+		}
+
+		<div class="mb-3">
+			<label asp-for="AssignmentFiles"></label>
+			<input type="file" name="assignmentfiles" multiple asp-for="AssignmentFiles" class="form-control" />
+		</div>
+		@{
+			if (Model.AssignmentFiles != null)
+			{
+				foreach (AssignmentFile file in Model.AssignmentFiles)
+				{
+					<p>
+						@file.FileUrl
+					</p>
+				}
+			}
+		}
+
+		@{
+			if (Model.Id != 0)
+			{
+				<button type="submit" class="btn btn-primary">Edit </button>
+			}
+			else
+			{
+				<button type="submit" class="btn btn-primary">Create </button>
+			}
+		}
+		<a asp-action="Index" asp-area="Admin" asp-controller="Course" class="btn btn-secondary">Go to Home</a>
+	</div>
+</form>
+
