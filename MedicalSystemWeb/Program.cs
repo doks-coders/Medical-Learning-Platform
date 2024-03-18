@@ -5,6 +5,7 @@ using MedicalSystem.Infrastructure.Repository.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using MedicalSystemWeb.Configuration;
+using MedicalSystem.Models.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
