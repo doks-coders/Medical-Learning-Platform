@@ -3,7 +3,7 @@
 # Medical Educational Platform
 
 This is an Educational Medical Platform Built on the robust .NET MVC framework for seamless user experience
-([Watch Video](https://youtu.be/PGDe9YxOP7Q))
+[Watch Video](https://youtu.be/PGDe9YxOP7Q)
 
 
 ## Installation
